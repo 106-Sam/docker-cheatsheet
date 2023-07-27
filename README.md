@@ -1,5 +1,6 @@
 # Docker-Notes
 
+
 **Docker** - Docker is containerisation tool, provides packaging the application and bundles all dependencies.
 
 - using docker we can create containers.
@@ -50,4 +51,14 @@ Source: [Docker namespace and Control groups](https://medium.com/@kasunmaduraeng
 - `docker commit <cont_id or cont_name)>` - to create image of a customised container.
 - `docker tag <img_id> <customized_name>` - to give repository name(small letters only) by default it takes tag as latest.
 - `docker tag <img_id> <customized_name>:v1` - same as above but now tag name is changed to v1.
+- `docker ps -aq` - to list only container id 
+
+_Note:_ Check the container in the host machine using `ps -ef | grep <cont_id>`. /var/lib/docker/ - dockers home directory
+*Note:* We can delete the folder in home directory to delete the image or container
+- `docker images -q` - it shows only images_id
+- `docker rm -f $(docker ps -aq)` - to delete all the container at once.
+- `docker rmi $(docker iamge -q)` - to delete all the images at once.
+- `docker run -it -h <hostname> --name <unique_name> <img_name>` - to add hostname while creating container.
+- `docker exec -it -u <user> <image_name>` - to loggin as a particular user.
+- `docker rename <old_cont_name> <new_cont_name>`  - to rename a container.
 ***
